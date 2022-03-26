@@ -1,25 +1,40 @@
-import React from "react";
-import logo from "../../assets/logo.svg";
-import "./Authent.css";
+import React, { useState } from 'react';
+
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
+import { authenticate } from '../../script/requests';
 
 function Authent() {
+	// UseMemo ?
+	// Pourquoi pas de typecheck sur le onChange ?
+	// Typographie sur les textes
+	const [username, setUsername] = useState('');
+	const [userPw, setUserPw] = useState('');
+
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-          Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-          Learn React
-				</a>
-			</header>
-		</div>
+		<Card>
+			<CardContent>
+				<TextField
+					id="outlined-basic"
+					variant="outlined"
+					label="login"
+					value={username}
+					onChange={(event) => setUsername(event.target.value)}/>
+				<TextField
+					id="outlined-basic"
+					variant="outlined"
+					label="mot de passe"
+					value={userPw}
+					onChange={(event) => setUserPw(event.target.value)}/>
+			</CardContent>
+			<CardActions>
+				<Button onClick={() => authenticate(username, userPw)}>Login</Button>
+			</CardActions>
+		</Card>
 	);
 }
 
