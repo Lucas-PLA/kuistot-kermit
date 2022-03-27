@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -14,6 +15,10 @@ function Authent() {
 	// Typographie sur les textes
 	const [username, setUsername] = useState('');
 	const [userPw, setUserPw] = useState('');
+
+	if (localStorage.getItem("auth-token")) {
+		return <Navigate to="/" replace />;
+	}
 
 	return (
 		<Card>

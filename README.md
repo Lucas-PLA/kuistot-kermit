@@ -1,3 +1,17 @@
+# Roadmap
+
+## Fixes :
+- Mettre à jour l'authent, pour suivre les modifications du localStorage
+## Refacto :
+- ajouter un type au token
+- nom routes / nom des entrées localStorage en fichier de type
+- ajout de prettier
+- Ajout de logs
+- Ajout d'un base directory
+## Features :
+- Guide de style
+- Styliser la page d'authentification
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
