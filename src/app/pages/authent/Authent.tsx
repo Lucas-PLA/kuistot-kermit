@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { authenticate } from '../../script/requests';
+
+import './Authent.css';
 
 function Authent() {
 	// UseMemo ?
@@ -21,25 +20,26 @@ function Authent() {
 	}
 
 	return (
-		<Card>
-			<CardContent>
+		<div id="background">
+			<form id='authent-form'>
+				<h2>Authentifiez-vous !</h2>
 				<TextField
 					id="outlined-basic"
+					className="login-form-element"
 					variant="outlined"
 					label="login"
 					value={username}
 					onChange={(event) => setUsername(event.target.value)}/>
 				<TextField
 					id="outlined-basic"
+					className="login-form-element"
 					variant="outlined"
 					label="mot de passe"
 					value={userPw}
 					onChange={(event) => setUserPw(event.target.value)}/>
-			</CardContent>
-			<CardActions>
-				<Button onClick={() => authenticate(username, userPw)}>Login</Button>
-			</CardActions>
-		</Card>
+				<Button className="login-form-element" variant="contained" onClick={() => authenticate(username, userPw)}>Login</Button>
+			</form>
+		</div>
 	);
 }
 

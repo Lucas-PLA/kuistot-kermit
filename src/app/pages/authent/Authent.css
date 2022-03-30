@@ -1,0 +1,33 @@
+#authent-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: fit-content;
+
+	padding: 30px;
+
+	border: 1px solid;
+	border-radius: 3px;
+
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+
+	background-color: #FAFAFA;
+	box-shadow: 3px 3px 8px -1px #848484;
+}
+
+.login-form-element {
+	width: 200px;
+	margin: 10px 0;
+}
+
+#background {
+	background-image: url('../../assets/authent-background-image.jpg');
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}

@@ -5,13 +5,17 @@ import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from './app/mocking/server';
 
+import { StyledEngineProvider } from '@mui/material/styles';
+
 if (process.env.NODE_ENV === "development") {
 	makeServer({environment: "development"});
 }
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<StyledEngineProvider injectFirst>
+			<App />
+		</StyledEngineProvider>
 	</React.StrictMode>,
 	document.getElementById('root')
 );

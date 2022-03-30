@@ -1,5 +1,15 @@
 # Roadmap
 
+- raccourcis pour mettre balises html autour
+- plugin modif du html
+- fiche mémo css
+
+- faire un design responsive
+- rajouter du css pour toute l'appli (hauteur des balises html, body, div)
+- factoriser le code css index.css
+- virer l'important et passer par du css de material-ui
+- mettre le mot de passe oublié
+
 ## Fixes :
 - Mettre à jour l'authent, pour suivre les modifications du localStorage
 ## Refacto :
@@ -11,6 +21,7 @@
 ## Features :
 - Guide de style
 - Styliser la page d'authentification
+- faire un design responsive
 
 # Getting Started with Create React App
 

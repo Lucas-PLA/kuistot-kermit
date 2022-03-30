@@ -7,9 +7,6 @@ import RequireAuth from './utils/requireAuth';
 
 //TODO : passer par un switch ?
 
-// TODO : changer string du champs token
-// TODO : règle sur les dépendances du useEffect ?
-
 function App() {
 
 	return (
