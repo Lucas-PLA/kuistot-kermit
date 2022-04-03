@@ -1,23 +1,37 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { authenticate } from '../../script/requests';
+import { GlobalContext } from '../../utils/GlobalContext';
 
 import './Authent.css';
 
+//TODO :
+// - useMemo ?
+// - fonction pour tester si authentifié ?
+// - supprimer type any$
+// - Type pour la requête
+
 function Authent() {
-	// UseMemo ?
-	// Pourquoi pas de typecheck sur le onChange ?
-	// Typographie sur les textes
+	const context = useContext(GlobalContext);
+	const navigate = useNavigate();
+	const location : any = useLocation();
+	const from = location.state?.from?.pathname || "/";
+	
 	const [username, setUsername] = useState('');
 	const [userPw, setUserPw] = useState('');
 
-	if (localStorage.getItem("auth-token")) {
-		return <Navigate to="/" replace />;
-	}
+	const doAuthenticate = () => {
+		authenticate(username, userPw)
+			.then(response => {
+				context?.dispatch.setToken(response.data.token);
+				navigate(from, { replace: true });
+			})
+			.catch(error => console.log(error));
+	};
 
 	return (
 		<div id="background">
@@ -37,7 +51,7 @@ function Authent() {
 					label="mot de passe"
 					value={userPw}
 					onChange={(event) => setUserPw(event.target.value)}/>
-				<Button className="login-form-element" variant="contained" onClick={() => authenticate(username, userPw)}>Login</Button>
+				<Button className="login-form-element" variant="contained" onClick={doAuthenticate}>Login</Button>
 			</form>
 		</div>
 	);

@@ -1,27 +1,23 @@
 # Roadmap
 
-- raccourcis pour mettre balises html autour
-- plugin modif du html
-- fiche mémo css
-
-- faire un design responsive
-- rajouter du css pour toute l'appli (hauteur des balises html, body, div)
-- factoriser le code css index.css
-- virer l'important et passer par du css de material-ui
-- mettre le mot de passe oublié
-
-## Fixes :
-- Mettre à jour l'authent, pour suivre les modifications du localStorage
-## Refacto :
-- ajouter un type au token
+## Quick improvements
 - nom routes / nom des entrées localStorage en fichier de type
 - ajout de prettier
 - Ajout de logs
 - Ajout d'un base directory
-## Features :
-- Guide de style
-- Styliser la page d'authentification
+
+## A faire rapidement
+- voir pour mettre en place un contexte global de l'appli
+- voir pour mettre un guide de style sur l'application
+- factoriser le code css index.css
+
+## A moyen terme :
+- voir pour l'ajout de StoryBook ?
+
+# A long terme :
 - faire un design responsive
+- mettre le mot de passe oublié
+- Mettre en place du css plus "moderne"
 
 # Getting Started with Create React App
 
