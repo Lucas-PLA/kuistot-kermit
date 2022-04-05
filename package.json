@@ -15,6 +15,7 @@
     "@types/react-dom": "^17.0.14",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^0.26.1",
+    "luxon": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.2",
@@ -26,12 +27,24 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
   },
   "browserslist": {
@@ -47,11 +60,24 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.4.20",
+    "@storybook/addon-essentials": "^6.4.20",
+    "@storybook/addon-interactions": "^6.4.20",
+    "@storybook/addon-links": "^6.4.20",
+    "@storybook/builder-webpack5": "^6.4.20",
+    "@storybook/manager-webpack5": "^6.4.20",
+    "@storybook/node-logger": "^6.4.20",
+    "@storybook/preset-create-react-app": "^4.1.0",
+    "@storybook/react": "^6.4.20",
+    "@storybook/testing-library": "^0.0.9",
+    "@types/luxon": "^2.3.1",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "eslint": "^8.11.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
-    "miragejs": "^0.1.43"
+    "eslint-plugin-storybook": "^0.5.7",
+    "miragejs": "^0.1.43",
+    "webpack": "^5.71.0"
   }
 }

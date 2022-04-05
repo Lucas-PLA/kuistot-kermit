@@ -9,11 +9,7 @@ import { GlobalContext } from '../../utils/GlobalContext';
 
 import './Authent.css';
 
-//TODO :
-// - Type pour la requête
-
 function Authent() {
-	console.log("rerender");
 	const context = useContext(GlobalContext);
 	const navigate = useNavigate();
 	const location : any = useLocation();
