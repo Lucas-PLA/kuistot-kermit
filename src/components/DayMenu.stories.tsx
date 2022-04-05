@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import DayMenu from './DayMenu';
-import { Menu, Recette } from '../types/recette.type';
+import { Menu, Recette } from 'types/recette.type';
 
 // rajouter argType
 export default {

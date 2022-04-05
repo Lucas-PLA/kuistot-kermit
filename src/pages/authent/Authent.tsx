@@ -4,16 +4,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-import { authenticate } from '../../script/requests';
-import { GlobalContext } from '../../utils/GlobalContext';
+import { authenticate } from 'script/requests';
+import { GlobalContext } from 'utils/GlobalContext';
 
 import './Authent.css';
-
-//TODO :
-// - useMemo ?
-// - fonction pour tester si authentifié ?
-// - supprimer type any$
-// - Type pour la requête
 
 function Authent() {
 	const context = useContext(GlobalContext);

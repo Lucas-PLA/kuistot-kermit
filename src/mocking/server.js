@@ -1,6 +1,6 @@
 import { createServer } from 'miragejs';
 
-import { AUTHENTICATE } from '../script/requests';
+import { AUTHENTICATE } from 'script/requests';
 
 export function makeServer({environment = "development"}) {
 	let server = createServer({

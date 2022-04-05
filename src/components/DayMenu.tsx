@@ -3,7 +3,7 @@ import React from 'react';
 import DateTime from 'luxon';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
-import { Menu, Recette } from '../types/recette.type';
+import { Menu, Recette } from 'types/recette.type';
 
 import './DayMenu.css';
 
