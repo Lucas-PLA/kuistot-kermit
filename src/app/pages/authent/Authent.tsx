@@ -9,6 +9,12 @@ import { GlobalContext } from '../../utils/GlobalContext';
 
 import './Authent.css';
 
+//TODO :
+// - useMemo ?
+// - fonction pour tester si authentifié ?
+// - supprimer type any$
+// - Type pour la requête
+
 function Authent() {
 	const context = useContext(GlobalContext);
 	const navigate = useNavigate();
