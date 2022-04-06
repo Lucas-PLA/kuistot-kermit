@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import DayMenu from './DayMenu';
-import { Menu, Recette } from 'types/recette.type';
 
 // rajouter argType
 export default {
@@ -12,8 +11,8 @@ export default {
 
 const Template: ComponentStory<typeof DayMenu> = (args) => <DayMenu {...args} />;
 
-export const Kermit = Template.bind({});
-Kermit.args = {
+export const Default = Template.bind({});
+Default.args = {
     date: '2022-04-05',
     starter: [
         {
