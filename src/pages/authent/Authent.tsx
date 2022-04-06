@@ -5,7 +5,8 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 import { authenticate } from 'script/requests';
-import { GlobalContext } from 'utils/GlobalContext';
+import { GlobalContext } from 'utils/GlobalContextProvider';
+import { LS_TOKEN_KEY } from 'const/localStorage.const';
 
 import './Authent.css';
 
@@ -21,6 +22,7 @@ function Authent() {
 	const doAuthenticate = () => {
 		authenticate(username, userPw)
 			.then(response => {
+				localStorage.setItem(LS_TOKEN_KEY, response.data.token);
 				context?.dispatch.setToken(response.data.token);
 				navigate(from, { replace: true });
 			})

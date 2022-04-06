@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 
-import { GlobalContext } from './GlobalContext';
-import { ROUTE_AUTHENT } from './routes.const';
+import { GlobalContext } from './GlobalContextProvider';
+import { ROUTE_AUTHENT } from '../const/routes.const';
 
 // Composant de redirection vers une page d'authentification
 // Le composant doit redirigé vers la route requêtée une fois l'authentification faite

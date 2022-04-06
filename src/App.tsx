@@ -7,8 +7,8 @@ import Menu from 'pages/menu/Menu';
 import Navbar from 'components/navbar/Navbar';
 
 import RequireAuth from 'utils/RequireAuth';
-import GlobalContextProvider from 'utils/GlobalContext';
-import * as AppRoutes from 'utils/routes.const';
+import GlobalContextProvider from 'utils/GlobalContextProvider';
+import * as AppRoutes from 'const/routes.const';
 
 import './App.css';
 
@@ -27,8 +27,6 @@ function App() {
 }
 
 function AppWhileAuthenticated() {
-	console.log("authent");
-
 	return(
 		<div id="app">
 			<Navbar />

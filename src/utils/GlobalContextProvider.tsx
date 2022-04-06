@@ -1,5 +1,7 @@
 import React, { createContext, useState } from 'react';
 
+import { LS_TOKEN_KEY } from 'const/localStorage.const';
+
 type Props = {
 	children: JSX.Element
 };
@@ -15,11 +17,10 @@ type Context = {
 	}
 } | null;
 
-const initialValue : State = {token: ""};
 export const GlobalContext = createContext<Context>(null);
 
 function GlobalContextProvider({ children }: Props) {
-	const [state, setState] = useState<State>(initialValue);
+	const [state, setState] = useState<State>(loadLocalStorage);
 
 	const setToken = (newToken: string) => setState({...state, token: newToken});
 
@@ -28,6 +29,11 @@ function GlobalContextProvider({ children }: Props) {
 			{children}
 		</GlobalContext.Provider>
 	);
+}
+
+function loadLocalStorage() : State {
+	const token : string = localStorage.getItem(LS_TOKEN_KEY) || "";
+	return ({token: token});
 }
 
 export default GlobalContextProvider;
