@@ -7,8 +7,7 @@ import Menu from 'pages/menu/Menu';
 
 import RequireAuth from 'utils/RequireAuth';
 import GlobalContextProvider from 'utils/GlobalContext';
-
-//TODO : passer par un switch ?
+import * as AppRoutes from 'utils/routes.const';
 
 function App() {
 
@@ -16,9 +15,10 @@ function App() {
 		<GlobalContextProvider>
 			<BrowserRouter>
 				<Routes>
-					<Route path='recette' element={<RequireAuth><Recette /></RequireAuth>} />
-					<Route path='' element={<RequireAuth><Menu /></RequireAuth>} />
-					<Route path='authent' element={<Authent />} />
+					<Route path={AppRoutes.ROUTE_RECETTES} element={<RequireAuth><Recette /></RequireAuth>} />
+					<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><Menu /></RequireAuth>} />
+					<Route path={AppRoutes.ROUTE_AUTHENT} element={<Authent />} />
+					<Route path={AppRoutes.BASE_ROUTE} element={<RequireAuth><Menu /></RequireAuth>} />
 				</Routes>
 			</BrowserRouter>
 		</GlobalContextProvider>

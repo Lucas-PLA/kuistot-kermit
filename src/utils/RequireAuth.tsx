@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 
 import { GlobalContext } from './GlobalContext';
+import { ROUTE_AUTHENT } from './routes.const';
 
 // Composant de redirection vers une page d'authentification
 // Le composant doit redirigé vers la route requêtée une fois l'authentification faite
@@ -17,7 +18,7 @@ function RequireAuth({children} : { children : JSX.Element}) {
 	[context?.state.token]);
 
 	if(!isAuthentified) {
-		return <Navigate to="/authent" state={{ from: location }} replace />;
+		return <Navigate to={ROUTE_AUTHENT} state={{ from: location }} replace />;
 	}
 
 	return children;
