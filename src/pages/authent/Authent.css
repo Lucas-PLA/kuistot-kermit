@@ -1,4 +1,4 @@
-#authent-form {
+#login__form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -19,12 +19,12 @@
 	box-shadow: 3px 3px 8px -1px #848484;
 }
 
-.login-form-element {
+.login__form-element {
 	width: 200px;
 	margin: 10px 0;
 }
 
-#background {
+#login-page__background {
 	background-image: url('../../assets/authent-background-image.jpg');
 	height: 100%;
 	background-position: center;

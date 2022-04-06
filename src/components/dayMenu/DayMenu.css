@@ -1,34 +1,34 @@
-#dayMenu-card {
+#day-menu__card {
     width: 250px;
     height: 410px;
     border-radius: 25px;
 }
 
-#card-content {
+#day-menu__card-content {
     padding: 15px;
 }
 
-#card-title {
+#day-menu__card-title {
     background-color: #7CCF08;
     text-align: center;
     color: white;
 }
 
-.service-title {
+.day-menu__service-title {
     text-align: center;
     margin: 0;
 }
 
-hr {
+.day-menu__hr {
     border-top: 1px;
     margin: 15px 0;
 }
 
-ul {
+.day-menu__ul {
     padding: 0;
     list-style: none;
 }
 
-li {
+.day-menu__li {
     margin: 5px;
 }

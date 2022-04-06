@@ -23,7 +23,7 @@ function Navbar() {
 	};
 
 	return (
-		<Box id="navbar">
+		<Box id="app-navbar">
 			<List>
 				<ListItem disablePadding>
 					<ListItemButton onClick={navigateToPage(ROUTE_MENU)}>

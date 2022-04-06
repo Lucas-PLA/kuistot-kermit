@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Composants/DayMenu Default 1`] = `
+<div
+  className="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiCard-root css-bhp9pd-MuiPaper-root-MuiCard-root"
+  id="day-menu__card"
+>
+  <button
+    className="MuiButtonBase-root MuiCardActionArea-root css-b6lsxj-MuiButtonBase-root-MuiCardActionArea-root"
+    disabled={false}
+    onBlur={[Function]}
+    onContextMenu={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    tabIndex={0}
+    type="button"
+  >
+    <div
+      id="day-menu__card-title"
+    >
+      <h1>
+        2022-04-05
+      </h1>
+    </div>
+    <div
+      id="day-menu__card-content"
+    >
+      <h2
+        className="day-menu__service-title"
+      >
+        entrée
+      </h2>
+      <ul
+        className="day-menu__ul"
+      >
+        <li
+          className="day-menu__li"
+        >
+          lasagne
+        </li>
+        <li
+          className="day-menu__li"
+        >
+          polenta
+        </li>
+      </ul>
+      <hr
+        className="day-menu__hr"
+      />
+      <h2
+        className="day-menu__service-title"
+      >
+        plat
+      </h2>
+      <ul
+        className="day-menu__ul"
+      >
+        <li
+          className="day-menu__li"
+        >
+          lasagne
+        </li>
+        <li
+          className="day-menu__li"
+        >
+          polenta
+        </li>
+      </ul>
+      <hr
+        className="day-menu__hr"
+      />
+      <h2
+        className="day-menu__service-title"
+      >
+        dessert
+      </h2>
+      <ul
+        className="day-menu__ul"
+      >
+        <li
+          className="day-menu__li"
+        >
+          lasagne
+        </li>
+        <li
+          className="day-menu__li"
+        >
+          polenta
+        </li>
+      </ul>
+    </div>
+    <span
+      className="MuiCardActionArea-focusHighlight css-1v2exvi-MuiCardActionArea-focusHighlight"
+    />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Composants/Navbar Default 1`] = `
+<div
+  className="MuiBox-root css-0"
+  id="app-navbar"
+>
+  <ul
+    className="MuiList-root MuiList-padding css-h4y409-MuiList-root"
+  >
+    <li
+      className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="RoomServiceIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M2 17h20v2H2zm11.84-9.21c.1-.24.16-.51.16-.79 0-1.1-.9-2-2-2s-2 .9-2 2c0 .28.06.55.16.79C6.25 8.6 3.27 11.93 3 16h18c-.27-4.07-3.25-7.4-7.16-8.21z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        >
+          <span
+            className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          >
+            Mon menu
+          </span>
+        </div>
+      </div>
+    </li>
+    <li
+      className="MuiListItem-root MuiListItem-gutters css-1nxmd3h-MuiListItem-root"
+      disabled={false}
+    >
+      <div
+        className="MuiListItemButton-root MuiListItemButton-gutters MuiButtonBase-root css-cvhtoe-MuiButtonBase-root-MuiListItemButton-root"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onContextMenu={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <div
+          className="MuiListItemIcon-root css-cveggr-MuiListItemIcon-root"
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="KitchenIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M18 2.01 6 2c-1.1 0-2 .89-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5zM8 5h2v3H8zm0 7h2v5H8z"
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiListItemText-root css-tlelie-MuiListItemText-root"
+        >
+          <span
+            className="MuiTypography-root MuiTypography-body1 MuiListItemText-primary css-10hburv-MuiTypography-root"
+          >
+            Mes recettes
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

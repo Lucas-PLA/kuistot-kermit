@@ -28,24 +28,24 @@ function Authent() {
 	};
 
 	return (
-		<div id="background">
-			<form id='authent-form'>
+		<div id="login-page__background">
+			<form id='login__form'>
 				<h2>Authentifiez-vous !</h2>
 				<TextField
 					id="outlined-basic"
-					className="login-form-element"
+					className="login__form-element"
 					variant="outlined"
 					label="login"
 					value={username}
 					onChange={(event) => setUsername(event.target.value)}/>
 				<TextField
 					id="outlined-basic"
-					className="login-form-element"
+					className="login__form-element"
 					variant="outlined"
 					label="mot de passe"
 					value={userPw}
 					onChange={(event) => setUserPw(event.target.value)}/>
-				<Button className="login-form-element" variant="contained" onClick={doAuthenticate}>Login</Button>
+				<Button className="login__form-element" variant="contained" onClick={doAuthenticate}>Login</Button>
 			</form>
 		</div>
 	);

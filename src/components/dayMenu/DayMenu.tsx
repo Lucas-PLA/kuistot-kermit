@@ -10,14 +10,14 @@ import './DayMenu.css';
 function DayMenu({date, starter, mainCourse, dessert}: Menu) {
 
     return(
-        <Card id="dayMenu-card">
+        <Card id="day-menu__card">
             <CardActionArea>
                 <Title date={date} />
-                <div id="card-content">
+                <div id="day-menu__card-content">
                     <ServiceMenu name="entrée" plats={starter} />
-                    <hr />
+                    <hr className='day-menu__hr'/>
                     <ServiceMenu name="plat" plats={mainCourse} />
-                    <hr />
+                    <hr className='day-menu__hr'/>
                     <ServiceMenu name="dessert" plats={dessert} />
                 </div>
             </CardActionArea>
@@ -35,10 +35,10 @@ interface ServiceMenuProps {
 function ServiceMenu({ name, plats } : ServiceMenuProps) {
     return (
         <>
-            <h2 className="service-title">{name}</h2>
-            <ul>
+            <h2 className="day-menu__service-title">{name}</h2>
+            <ul className="day-menu__ul">
                 {plats.map((plat) => 
-                    <li key={plat.id}>{plat.name}</li>
+                    <li key={plat.id} className="day-menu__li">{plat.name}</li>
                 )}
             </ul>
         </>
@@ -52,7 +52,7 @@ function Title({date}: {date: string}) {
     const formatedDate = date;
 
     return (
-        <div id="card-title">
+        <div id="day-menu__card-title">
             <h1>{formatedDate}</h1>
         </div>
     );
