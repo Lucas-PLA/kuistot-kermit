@@ -10,20 +10,23 @@ import './TextFieldWithTags.css';
 interface Props {
     label: string;
     buttonText: string;
+    onChange: (value: string[]) => void;
 }
 
-function TextFieldWithTags({ label, buttonText } : Props) {
+function TextFieldWithTags({ label, buttonText, onChange } : Props) {
     const [tagList, setTagList] = useState<string[]>([]);
     const [tagName, setTagName] = useState<string>("");
     
     const handleDelete = (tag : string) => () => {
         const tagIndex = tagList.indexOf(tag);
         setTagList([ ...tagList.slice(0, tagIndex), ...tagList.slice(tagIndex + 1 , tagList.length)]);
+        onChange(tagList);
     };
 
     const handleAdd = () => {
         if(tagName !== "") setTagList([...tagList, tagName]);
         setTagName("");
+        onChange(tagList);
     };
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
