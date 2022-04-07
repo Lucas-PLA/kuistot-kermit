@@ -1,0 +1,7 @@
+#textfield-with-tags__input-row {
+    display: flex;
+}
+
+#textfield-with-tags__textfield {
+    margin-right: 10px;
+}
