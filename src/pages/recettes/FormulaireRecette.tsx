@@ -49,7 +49,7 @@ function FormulaireRecette() {
 
     const handleClick = () => {
         pushNewRecette(state);
-    }
+    };
 
     return (
         <>
@@ -75,7 +75,7 @@ function FormulaireRecette() {
                 onChange={(value) => dispatch(FieldToUpdate.RECETTE, value)}/>
             <Button onClick={handleClick}>Ajouter recette</Button>
         </>
-    )
-};
+    );
+}
 
 export default FormulaireRecette;

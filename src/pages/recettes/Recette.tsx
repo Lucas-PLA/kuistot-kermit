@@ -1,8 +1,17 @@
 import React from 'react';
 
+import TableRecette from './TableRecette';
+import FormulaireRecette from './FormulaireRecette';
+
+import './Recette.css';
+
 function Recette() {
 	return (
-		<h1>kermit</h1>
+		<div id="Recette-page">
+			<h1>Recettes</h1>
+			<FormulaireRecette />
+			<TableRecette />
+		</div>
 	);
 }
 

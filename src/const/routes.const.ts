@@ -6,4 +6,4 @@ export const BASE_ROUTE = "/";
 
 // Url externes
 export const AUTHENTICATE  = '/authenticate';
-export const PUSH_NEW_RECETTE = '/recette';
+export const RECETTE = '/recette';

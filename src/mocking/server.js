@@ -1,16 +1,19 @@
 import { createServer } from 'miragejs';
 
-import { AUTHENTICATE, PUSH_NEW_RECETTE } from 'const/routes.const';
+import * as URL from 'const/routes.const';
 
 export function makeServer({environment = "development"}) {
 	let server = createServer({
 		environment,
 		routes() {
-			this.post(AUTHENTICATE, () => {return {token: 'kermit'};});
-			this.post(PUSH_NEW_RECETTE, (schema, request) => {
+			this.post(URL.AUTHENTICATE, () => {return {token: 'kermit'};});
+			this.post(`${URL.RECETTE}/:id`, (schema, request) => {
 				let data = JSON.parse(request.requestBody);
 				return schema.db.recettes.insert(data);
-			})
+			});
+			this.get(URL.RECETTE, (schema) => {
+				return schema.db.recettes;
+			});
 		}
 	});
 
