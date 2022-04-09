@@ -5,6 +5,7 @@ import Authent from 'pages/authent/Authent';
 import RecettePage from 'pages/recettes/RecettePage';
 import Menu from 'pages/menu/Menu';
 import Navbar from 'components/navbar/Navbar';
+import TitleBar from 'components/titleBar/TitleBar';
 
 import RequireAuth from 'utils/RequireAuth';
 import GlobalContextProvider from 'utils/GlobalContextProvider';
@@ -27,14 +28,17 @@ function App() {
 }
 
 function AppWhileAuthenticated() {
-	return(
+	return (
 		<div id="app">
-			<Navbar />
-			<Routes>
-				<Route path={AppRoutes.ROUTE_RECETTES} element={<RequireAuth><RecettePage /></RequireAuth>} />
-				<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><Menu /></RequireAuth>} />
-				<Route path='*' element={<RequireAuth><Menu /></RequireAuth>} />
-			</Routes>
+			<TitleBar />
+			<div id="app-without-titlebar">
+				<Navbar />
+				<Routes>
+					<Route path={AppRoutes.ROUTE_RECETTES} element={<RequireAuth><RecettePage /></RequireAuth>} />
+					<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><Menu /></RequireAuth>} />
+					<Route path='*' element={<RequireAuth><Menu /></RequireAuth>} />
+				</Routes>
+			</div>
 		</div>
 	);
 }
