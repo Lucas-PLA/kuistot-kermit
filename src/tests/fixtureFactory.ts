@@ -1,6 +1,6 @@
 import { Menu, Recette } from 'types/recette.type';
 
-enum Services {
+export enum Services {
 	entree,
 	plat,
 	dessert

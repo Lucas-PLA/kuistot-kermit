@@ -17,9 +17,9 @@ enum FieldToUpdate {
     RECETTE
 }
 
-function FormulaireRecette() {
+function FormulaireRecette({addRecette}: {addRecette: (recette: Recette) => void}) {
 
-    const [state, setState] = useState<State>(
+    const emptyState = () => (
         {
             id: Date.now() + "-" + Math.floor(Math.random() * 1000000),
             name: "",
@@ -29,6 +29,8 @@ function FormulaireRecette() {
             recette: []
         }
     );
+
+    const [state, setState] = useState<State>(emptyState());
 
     function dispatch(fieldToUpdate: FieldToUpdate, value: any) {
         switch(fieldToUpdate) {
@@ -47,8 +49,10 @@ function FormulaireRecette() {
         }
     }
 
-    const handleClick = () => {
+    const handleSubmitForm = () => {
         pushNewRecette(state);
+        addRecette(state);
+        setState(emptyState());
     };
 
     return (
@@ -73,7 +77,7 @@ function FormulaireRecette() {
                 label="étape de recette"
                 buttonText="ajouter"
                 onChange={(value) => dispatch(FieldToUpdate.RECETTE, value)}/>
-            <Button onClick={handleClick}>Ajouter recette</Button>
+            <Button onClick={handleSubmitForm}>Ajouter recette</Button>
         </>
     );
 }

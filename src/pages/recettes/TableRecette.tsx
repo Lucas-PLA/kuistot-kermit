@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,23 +9,19 @@ import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { Recette } from 'types/recette.type';
-import { getRecettes } from 'script/requests';
+import { deleteRecette } from 'script/requests';
 
-function TableRecette() {
+interface Props {
+    recettes : Recette[];
+    setRecettes : (recettes: Recette[]) => void;
+}
 
-    useEffect(() => {
-        getRecettes().then(response => {
-            console.log(response);
-            // setRecettes(response.data);
-        });
-    },
-    []);
+function TableRecette({recettes, setRecettes} : Props) {
     
-    const [recettes, setRecettes] = useState<Recette[]>([]);
-
     const handleDelete = (id: string) => () => {
-        console.log(id);
-        //TODO
+        deleteRecette(id);
+        const idRecette = recettes.findIndex(element => element.id === id);
+        setRecettes([...recettes.slice(0, idRecette), ...recettes.slice(idRecette + 1, recettes.length)]);
     };
 
     return (

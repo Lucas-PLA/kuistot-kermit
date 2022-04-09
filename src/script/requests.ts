@@ -12,6 +12,10 @@ export const pushNewRecette = (recette: Recette) => {
 	return axios.post(URL.RECETTE + "/" + recette.id, recette);
 };
 
+export const deleteRecette = (idRecette: string) => {
+	return axios.delete(URL.RECETTE + "/" + idRecette);
+};
+
 export const getRecettes = () => {
 	return axios.get(URL.RECETTE);
 };
