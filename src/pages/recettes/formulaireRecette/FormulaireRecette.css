@@ -1,0 +1,29 @@
+#formulaire-recette {
+	background-color: #FFFFFF;
+	border: 1px solid;
+	border-radius: 15px;
+	padding: 15px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 120%;
+	max-height: 300px;
+
+	margin-bottom: 30px;
+}
+
+#formulaire-recette__slider-field {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+}
+
+#formulaire-recette_slider-name-row {
+	display: flex;
+	justify-content: space-between;
+}
+
+.formulaire-recette__row {
+	margin-bottom: 10px;
+}

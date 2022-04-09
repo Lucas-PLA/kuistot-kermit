@@ -9,6 +9,8 @@ import { Recette } from "types/recette.type";
 
 import { pushNewRecette } from 'script/requests';
 
+import './FormulaireRecette.css';
+
 type State = Recette;
 enum FieldToUpdate {
     NAME,
@@ -17,7 +19,7 @@ enum FieldToUpdate {
     RECETTE
 }
 
-function FormulaireRecette({addRecette}: {addRecette: (recette: Recette) => void}) {
+function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => void }) {
 
     const emptyState = () => (
         {
@@ -33,18 +35,18 @@ function FormulaireRecette({addRecette}: {addRecette: (recette: Recette) => void
     const [state, setState] = useState<State>(emptyState());
 
     function dispatch(fieldToUpdate: FieldToUpdate, value: any) {
-        switch(fieldToUpdate) {
+        switch (fieldToUpdate) {
             case FieldToUpdate.NAME:
-                setState({...state, name: value});
+                setState({ ...state, name: value });
                 break;
             case FieldToUpdate.TIME:
-                setState({...state, time: value});
+                setState({ ...state, time: value });
                 break;
             case FieldToUpdate.INGREDIENTS:
-                setState({...state, ingredients: value});
+                setState({ ...state, ingredients: value });
                 break;
             case FieldToUpdate.RECETTE:
-                setState({...state, recette: value});
+                setState({ ...state, recette: value });
                 break;
         }
     }
@@ -56,29 +58,33 @@ function FormulaireRecette({addRecette}: {addRecette: (recette: Recette) => void
     };
 
     return (
-        <>
-            <TextField
-                label="nom de la recette"
-                onChange={(event) => dispatch(FieldToUpdate.NAME, event.target.value)}/>
-            <>
-                <p>temps de préparation :</p>
-                <Slider
-                    min={0}
-                    max={60}
-                    step={5}
-                    valueLabelDisplay="auto"
-                    onChange={(event) => dispatch(FieldToUpdate.TIME, event)}/>
-            </> 
+        <div id="formulaire-recette">
+            <div id="formulaire-recette_slider-name-row" className='formulaire-recette__row'>
+                <TextField
+                    label="nom de la recette"
+                    onChange={(event) => dispatch(FieldToUpdate.NAME, event.target.value)} />
+                <div id="formulaire-recette__slider-field">
+                    Temps de préparation :
+                    <Slider
+                        min={0}
+                        max={60}
+                        step={5}
+                        valueLabelDisplay="auto"
+                        onChange={(event) => dispatch(FieldToUpdate.TIME, event)} />
+                </div>
+            </div>
             <TextFieldWithTags
                 label="ingredient"
                 buttonText="ajouter"
-                onChange={(value) => dispatch(FieldToUpdate.INGREDIENTS, value)}/>
+                onChange={(value) => dispatch(FieldToUpdate.INGREDIENTS, value)}
+                className='formulaire-recette__row' />
             <TextFieldWithTags
                 label="étape de recette"
                 buttonText="ajouter"
-                onChange={(value) => dispatch(FieldToUpdate.RECETTE, value)}/>
+                onChange={(value) => dispatch(FieldToUpdate.RECETTE, value)}
+                className='formulaire-recette__row' />
             <Button onClick={handleSubmitForm}>Ajouter recette</Button>
-        </>
+        </div>
     );
 }
 

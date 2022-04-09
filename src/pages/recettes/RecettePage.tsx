@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import TableRecette from './TableRecette';
-import FormulaireRecette from './FormulaireRecette';
+import TableRecette from './tableRecette/TableRecette';
+import FormulaireRecette from './formulaireRecette/FormulaireRecette';
 
 import { Recette } from 'types/recette.type';
 
 import { getRecettes } from 'script/requests';
 
-import './Recette.css';
+import './RecettePage.css';
 
 function RecettePage() {
 	const [recettes, setRecettes] = useState<Recette[]>([]);

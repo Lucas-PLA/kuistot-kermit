@@ -11,9 +11,10 @@ interface Props {
     label: string;
     buttonText: string;
     onChange: (value: string[]) => void;
+    className: string;
 }
 
-function TextFieldWithTags({ label, buttonText, onChange } : Props) {
+function TextFieldWithTags({ label, buttonText, onChange, className } : Props) {
     const [tagList, setTagList] = useState<string[]>([]);
     const [tagName, setTagName] = useState<string>("");
     
@@ -34,7 +35,7 @@ function TextFieldWithTags({ label, buttonText, onChange } : Props) {
     };
 
     return(
-        <>
+        <div className={className}>
             <div id="textfield-with-tags__input-row">
                 <TextField
                     variant="outlined"
@@ -44,12 +45,12 @@ function TextFieldWithTags({ label, buttonText, onChange } : Props) {
                     label={label} />
                 <Button onClick={handleAdd} variant="contained">{buttonText}</Button>
             </div>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1} id='textfield-with-tags__tag-stack'>
                 { tagList.map((tag, index) => 
                     <Chip label={tag} onDelete={handleDelete(tag)} key={index}/>
                 )}
             </Stack>
-        </>
+        </div>
     );
 }
 
