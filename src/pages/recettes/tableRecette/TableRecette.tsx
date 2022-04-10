@@ -34,7 +34,7 @@ function TableRecette({ recettes, setRecettes }: Props) {
 
     return (
         <TableContainer component={Paper}>
-            <Table id='table-recette'>
+            <Table id='table-recette' size="small">
                 <TableHead>
                     <TableRow>
                         <TableCell><b>Nom de la recette</b></TableCell>
