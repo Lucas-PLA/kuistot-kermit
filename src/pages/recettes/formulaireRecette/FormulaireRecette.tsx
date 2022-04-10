@@ -34,19 +34,19 @@ function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => v
 
     const [state, setState] = useState<State>(emptyState());
 
-    function dispatch(fieldToUpdate: FieldToUpdate, value: any) {
+    function dispatch(fieldToUpdate: FieldToUpdate, value: string | string[] | number) {
         switch (fieldToUpdate) {
             case FieldToUpdate.NAME:
-                setState({ ...state, name: value });
+                setState({ ...state, name: value as string });
                 break;
             case FieldToUpdate.TIME:
-                setState({ ...state, time: value });
+                setState({ ...state, time: value as number });
                 break;
             case FieldToUpdate.INGREDIENTS:
-                setState({ ...state, ingredients: value });
+                setState({ ...state, ingredients: value as string[] });
                 break;
             case FieldToUpdate.RECETTE:
-                setState({ ...state, recette: value });
+                setState({ ...state, recette: value as string[] });
                 break;
         }
     }
@@ -70,7 +70,7 @@ function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => v
                         max={60}
                         step={5}
                         valueLabelDisplay="auto"
-                        onChange={(event) => dispatch(FieldToUpdate.TIME, event)} />
+                        onChange={(event, newValue) => dispatch(FieldToUpdate.TIME, newValue as number)} />
                 </div>
             </div>
             <TextFieldWithTags

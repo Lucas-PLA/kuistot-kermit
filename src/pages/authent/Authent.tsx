@@ -10,11 +10,15 @@ import { LS_TOKEN_KEY } from 'const/localStorage.const';
 
 import './Authent.css';
 
+interface StateType {
+	from: { pathname: string }
+ }
+
 function Authent() {
 	const context = useContext(GlobalContext);
 	const navigate = useNavigate();
-	const location : any = useLocation();
-	const from = location.state?.from?.pathname || "/";
+	const location = useLocation();
+	const from = (location.state as StateType)?.from?.pathname || "/";
 	
 	const [username, setUsername] = useState('');
 	const [userPw, setUserPw] = useState('');
