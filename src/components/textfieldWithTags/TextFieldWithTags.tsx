@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import TextField from '@mui/material/TextField';
 import Chip from '@mui/material/Chip';
@@ -18,11 +18,14 @@ function TextFieldWithTags({ label, buttonText, onChange, className } : Props) {
     const [tagList, setTagList] = useState<string[]>([]);
     const [tagName, setTagName] = useState<string>("");
     
-    const handleDelete = (tag : string) => () => {
-        const tagIndex = tagList.indexOf(tag);
-        setTagList([ ...tagList.slice(0, tagIndex), ...tagList.slice(tagIndex + 1 , tagList.length)]);
-        onChange(tagList);
-    };
+    const handleDelete = useCallback(
+        (tag : string) => () => {
+            const tagIndex = tagList.indexOf(tag);
+            setTagList([ ...tagList.slice(0, tagIndex), ...tagList.slice(tagIndex + 1 , tagList.length)]);
+            onChange(tagList);
+        },
+        [tagList, onChange]
+    );
 
     const handleAdd = () => {
         if(tagName !== "") setTagList([...tagList, tagName]);
@@ -30,9 +33,12 @@ function TextFieldWithTags({ label, buttonText, onChange, className } : Props) {
         onChange(tagList);
     };
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTagName(event.target.value);
-    };
+    const handleChange = useCallback(
+        (event: React.ChangeEvent<HTMLInputElement>) => {
+            setTagName(event.target.value);
+        },
+        []
+    );
 
     return(
         <div className={className}>

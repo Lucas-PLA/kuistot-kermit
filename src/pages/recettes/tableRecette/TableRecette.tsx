@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -23,11 +23,14 @@ interface Props {
 
 function TableRecette({ recettes, setRecettes }: Props) {
 
-    const handleDelete = (id: string) => () => {
-        deleteRecette(id);
-        const idRecette = recettes.findIndex(element => element.id === id);
-        setRecettes([...recettes.slice(0, idRecette), ...recettes.slice(idRecette + 1, recettes.length)]);
-    };
+    const handleDelete = useCallback(
+        (id: string) => () => {
+            deleteRecette(id);
+            const idRecette = recettes.findIndex(element => element.id === id);
+            setRecettes([...recettes.slice(0, idRecette), ...recettes.slice(idRecette + 1, recettes.length)]);
+        },
+        [recettes, setRecettes]
+    );
 
     return (
         <TableContainer component={Paper}>

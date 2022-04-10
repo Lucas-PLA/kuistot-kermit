@@ -19,18 +19,18 @@ enum FieldToUpdate {
     RECETTE
 }
 
-function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => void }) {
+const emptyState = () => (
+    {
+        id: Date.now() + "-" + Math.floor(Math.random() * 1000000),
+        name: "",
+        time: 0,
+        price: 0,
+        ingredients: [],
+        recette: []
+    }
+);
 
-    const emptyState = () => (
-        {
-            id: Date.now() + "-" + Math.floor(Math.random() * 1000000),
-            name: "",
-            time: 0,
-            price: 0,
-            ingredients: [],
-            recette: []
-        }
-    );
+function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => void }) {
 
     const [state, setState] = useState<State>(emptyState());
 
