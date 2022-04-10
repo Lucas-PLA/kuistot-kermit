@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { makeServer } from 'mocking/server';
+import log, { LogLevelDesc } from 'loglevel';
 
 import { StyledEngineProvider } from '@mui/material/styles';
 
 if (process.env.NODE_ENV === "development") {
 	makeServer({environment: "development"});
 }
+
+log.setLevel((process.env.LOG_LEVEL || "error") as LogLevelDesc);
 
 ReactDOM.render(
 	<React.StrictMode>

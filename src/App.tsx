@@ -9,6 +9,7 @@ import TitleBar from 'components/titleBar/TitleBar';
 
 import RequireAuth from 'utils/RequireAuth';
 import GlobalContextProvider from 'utils/GlobalContextProvider';
+import ErrorBoundary from 'utils/ErrorBoundary';
 import * as AppRoutes from 'const/routes.const';
 
 import './App.css';
@@ -16,14 +17,16 @@ import './App.css';
 function App() {
 
 	return (
-		<GlobalContextProvider>
-			<BrowserRouter>
-				<Routes>
-					<Route path={AppRoutes.ROUTE_AUTHENT} element={<Authent />} />
-					<Route path='*' element={<RequireAuth><AppWhileAuthenticated /></RequireAuth>} />
-				</Routes>
-			</BrowserRouter>
-		</GlobalContextProvider>
+		<ErrorBoundary fallBackUI={<p>merde, tout est pêté</p>}>
+			<GlobalContextProvider>
+				<BrowserRouter>
+					<Routes>
+						<Route path={AppRoutes.ROUTE_AUTHENT} element={<Authent />} />
+						<Route path='*' element={<RequireAuth><AppWhileAuthenticated /></RequireAuth>} />
+					</Routes>
+				</BrowserRouter>
+			</GlobalContextProvider>
+		</ErrorBoundary>
 	);
 }
 
@@ -31,14 +34,16 @@ function AppWhileAuthenticated() {
 	return (
 		<div id="app">
 			<TitleBar />
-			<div id="app-without-titlebar">
-				<Navbar />
-				<Routes>
-					<Route path={AppRoutes.ROUTE_RECETTES} element={<RequireAuth><RecettePage /></RequireAuth>} />
-					<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><Menu /></RequireAuth>} />
-					<Route path='*' element={<RequireAuth><Menu /></RequireAuth>} />
-				</Routes>
-			</div>
+			<ErrorBoundary fallBackUI={<p>Erreur lors du chagement de la page</p>}>
+				<div id="app-without-titlebar">
+					<Navbar />
+					<Routes>
+						<Route path={AppRoutes.ROUTE_RECETTES} element={<RequireAuth><RecettePage /></RequireAuth>} />
+						<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><Menu /></RequireAuth>} />
+						<Route path='*' element={<RequireAuth><Menu /></RequireAuth>} />
+					</Routes>
+				</div>
+			</ErrorBoundary>
 		</div>
 	);
 }
