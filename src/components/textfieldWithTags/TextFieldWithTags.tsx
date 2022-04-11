@@ -5,7 +5,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-import './TextFieldWithTags.css';
+import css from '@emotion/css';
 
 interface Props {
     label: string;
@@ -42,16 +42,16 @@ function TextFieldWithTags({ label, buttonText, onChange, className } : Props) {
 
     return(
         <div className={className}>
-            <div id="textfield-with-tags__input-row">
+            <div css={{display: 'flex'}}>
                 <TextField
                     variant="outlined"
                     onChange={handleChange}
                     value={tagName}
-                    id="textfield-with-tags__textfield"
+                    sx={{marginRight: '20px'}}
                     label={label} />
                 <Button onClick={handleAdd} variant="contained">{buttonText}</Button>
             </div>
-            <Stack direction="row" spacing={1} id='textfield-with-tags__tag-stack'>
+            <Stack direction="row" spacing={1} sx={{margin: '10px 0'}}>
                 { tagList.map((tag, index) => 
                     <Chip label={tag} onDelete={handleDelete(tag)} key={index}/>
                 )}

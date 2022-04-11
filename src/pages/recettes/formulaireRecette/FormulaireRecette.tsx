@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
 import TextFieldWithTags from "components/textfieldWithTags/TextFieldWithTags";
 import TextField from "@mui/material/TextField";
@@ -18,6 +18,10 @@ enum FieldToUpdate {
     INGREDIENTS,
     RECETTE
 }
+interface Action {
+    type: FieldToUpdate | 'RESET',
+    value: string | string[] | number | null
+} 
 
 const emptyState = () => (
     {
@@ -26,35 +30,32 @@ const emptyState = () => (
         time: 0,
         price: 0,
         ingredients: [],
-        recette: []
+        recette: [],
     }
 );
 
-function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => void }) {
-
-    const [state, setState] = useState<State>(emptyState());
-
-    function dispatch(fieldToUpdate: FieldToUpdate, value: string | string[] | number) {
-        switch (fieldToUpdate) {
-            case FieldToUpdate.NAME:
-                setState({ ...state, name: value as string });
-                break;
-            case FieldToUpdate.TIME:
-                setState({ ...state, time: value as number });
-                break;
-            case FieldToUpdate.INGREDIENTS:
-                setState({ ...state, ingredients: value as string[] });
-                break;
-            case FieldToUpdate.RECETTE:
-                setState({ ...state, recette: value as string[] });
-                break;
-        }
+function reducer(state: State, {type, value}: Action) : State {
+    switch (type) {
+        case FieldToUpdate.NAME:
+            return { ...state, name: value as string };
+        case FieldToUpdate.TIME:
+            return { ...state, time: value as number };
+        case FieldToUpdate.INGREDIENTS:
+            return { ...state, ingredients: value as string[] };
+        case FieldToUpdate.RECETTE:
+            return { ...state, recette: value as string[] };
+        case 'RESET':
+            return emptyState();
     }
+}
+
+function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => void }) {
+    const [state, dispatch] = useReducer(reducer, emptyState());
 
     const handleSubmitForm = () => {
         pushNewRecette(state);
         addRecette(state);
-        setState(emptyState());
+        dispatch({ type: 'RESET', value: null });
     };
 
     return (
@@ -62,7 +63,8 @@ function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => v
             <div id="formulaire-recette_slider-name-row" className='formulaire-recette__row'>
                 <TextField
                     label="nom de la recette"
-                    onChange={(event) => dispatch(FieldToUpdate.NAME, event.target.value)} />
+                    onChange={(event) => dispatch({ type: FieldToUpdate.NAME, value: event.target.value })}
+                    value={state.name}/>
                 <div id="formulaire-recette__slider-field">
                     Temps de préparation :
                     <Slider
@@ -70,18 +72,19 @@ function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => v
                         max={60}
                         step={5}
                         valueLabelDisplay="auto"
-                        onChange={(event, newValue) => dispatch(FieldToUpdate.TIME, newValue as number)} />
+                        value={state.time}
+                        onChange={(event, newValue) => dispatch({ type: FieldToUpdate.TIME, value: newValue as number })} />
                 </div>
             </div>
             <TextFieldWithTags
                 label="ingredient"
                 buttonText="ajouter"
-                onChange={(value) => dispatch(FieldToUpdate.INGREDIENTS, value)}
+                onChange={(value) => dispatch({type: FieldToUpdate.INGREDIENTS, value: value})}
                 className='formulaire-recette__row' />
             <TextFieldWithTags
                 label="étape de recette"
                 buttonText="ajouter"
-                onChange={(value) => dispatch(FieldToUpdate.RECETTE, value)}
+                onChange={(value) => dispatch({ type: FieldToUpdate.RECETTE, value: value })}
                 className='formulaire-recette__row' />
             <Button onClick={handleSubmitForm}>Ajouter recette</Button>
         </div>
