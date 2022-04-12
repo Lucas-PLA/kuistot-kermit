@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Authent from 'pages/authent/Authent';
 import RecettePage from 'pages/recettes/RecettePage';
-import Menu from 'pages/menu/Menu';
+import MenuPage from 'pages/menu/MenuPage';
 import Navbar from 'components/navbar/Navbar';
 import TitleBar from 'components/titleBar/TitleBar';
 
@@ -39,8 +39,8 @@ function AppWhileAuthenticated() {
 					<Navbar />
 					<Routes>
 						<Route path={AppRoutes.ROUTE_RECETTES} element={<RequireAuth><RecettePage /></RequireAuth>} />
-						<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><Menu /></RequireAuth>} />
-						<Route path='*' element={<RequireAuth><Menu /></RequireAuth>} />
+						<Route path={AppRoutes.ROUTE_MENU} element={<RequireAuth><MenuPage /></RequireAuth>} />
+						<Route path='*' element={<RequireAuth><MenuPage /></RequireAuth>} />
 					</Routes>
 				</div>
 			</ErrorBoundary>

@@ -14,7 +14,6 @@ interface Props {
 }
 
 function TextFieldWithTags({ label, buttonText, onChange, className = "", value = [] } : Props) {
-    console.log(label, " : ", buttonText, onChange, className, value);
     const [tagName, setTagName] = useState<string>("");
     const [tagList, setTagList] = useState<string[]>(value);
 
