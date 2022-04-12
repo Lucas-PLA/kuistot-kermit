@@ -13,5 +13,6 @@ const Template: ComponentStory<typeof TextFieldWithTags> = (args) => <TextFieldW
 export const Default = Template.bind({});
 Default.args = {
     label: "label",
-    buttonText: "ajouter"
+    buttonText: "ajouter",
+    value: []
 };

@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 import TextFieldWithTags from "components/textfieldWithTags/TextFieldWithTags";
 import TextField from "@mui/material/TextField";
@@ -80,12 +80,14 @@ function FormulaireRecette({ addRecette }: { addRecette: (recette: Recette) => v
                 label="ingredient"
                 buttonText="ajouter"
                 onChange={(value) => dispatch({type: FieldToUpdate.INGREDIENTS, value: value})}
-                className='formulaire-recette__row' />
+                className='formulaire-recette__row'
+                value={state.ingredients} />
             <TextFieldWithTags
                 label="étape de recette"
                 buttonText="ajouter"
                 onChange={(value) => dispatch({ type: FieldToUpdate.RECETTE, value: value })}
-                className='formulaire-recette__row' />
+                className='formulaire-recette__row'
+                value={state.recette} />
             <Button onClick={handleSubmitForm}>Ajouter recette</Button>
         </div>
     );
