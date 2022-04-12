@@ -16,7 +16,9 @@ export const Default = Template.bind({});
 Default.args = {
     label: "label",
     buttonText: "ajouter",
-    value: []
+    //TODO : voir pour retirer ces valeurs ?
+    value: [],
+    onChange: undefined
 };
 
 Default.play = async ({canvasElement}) => {

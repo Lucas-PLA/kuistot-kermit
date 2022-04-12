@@ -14,6 +14,7 @@ interface Props {
 }
 
 function TextFieldWithTags({ label, buttonText, onChange, className = "", value = [] } : Props) {
+    console.log(label, " : ", buttonText, onChange, className, value);
     const [tagName, setTagName] = useState<string>("");
     const [tagList, setTagList] = useState<string[]>(value);
 
@@ -38,8 +39,10 @@ function TextFieldWithTags({ label, buttonText, onChange, className = "", value 
         if(tagName !== "") {
             if (onChange) {
                 onChange([...tagList, tagName]);
+                console.log("kermit : ", onChange);
             } else {
                 setTagList([...tagList, tagName]);
+                console.log("fozzy");
             }
             setTagName("");
         }
