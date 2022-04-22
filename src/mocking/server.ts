@@ -1,6 +1,6 @@
 import { createServer, Model, Response } from 'miragejs';
 
-import { createRecette, Services } from 'tests/fixtureFactory';
+import { createRecette, createMenu, Services } from 'tests/fixtureFactory';
 
 import * as URL from 'const/routes.const';
 
@@ -9,7 +9,8 @@ export function makeServer({environment = "development"}) {
 		environment,
 
 		models: {
-			recettes: Model
+			recettes: Model,
+			menu: Model
 		},
 		seeds(server) {
 			server.db.loadData({
@@ -20,6 +21,18 @@ export function makeServer({environment = "development"}) {
 					createRecette(Services.plat),
 					createRecette(Services.dessert),
 					createRecette(Services.dessert),
+				]
+			});
+
+			server.db.loadData({
+				menu: [
+					createMenu(),
+					createMenu(),
+					createMenu(),
+					createMenu(),
+					createMenu(),
+					createMenu(),
+					createMenu()
 				]
 			});
 		},
@@ -39,6 +52,10 @@ export function makeServer({environment = "development"}) {
 			
 			this.get(URL.RECETTE, (schema) => {
 				return schema.db.recettes;
+			});
+
+			this.get(`${URL.MENU}/:idSemaine`, (schema) => {
+				return schema.db.menu;
 			});
 		}
 	});
