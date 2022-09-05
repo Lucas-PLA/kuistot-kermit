@@ -24,3 +24,6 @@ yarn-error.log*
 
 # local
 memo_vsc.md
+
+# VisualStudioCode
+.vscode/*
