@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { Recette, Menu } from "types/recette.type";
+import { Recette } from "types/recette.type";
 import { Token } from 'types/requests.type';
 
 import * as URL from 'const/routes.const';
@@ -19,8 +19,4 @@ export const deleteRecette = (idRecette: string) => {
 
 export const getRecettes = () : Promise<AxiosResponse<Recette[]>> => {
 	return axios.get(URL.RECETTE);
-};
-
-export const getUserWeekMenu = (weekStartingDay: any) : Promise<AxiosResponse<Menu[]>> => {
-	return axios.get(`${URL.MENU}/${weekStartingDay}`);
 };

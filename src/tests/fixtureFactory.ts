@@ -1,4 +1,4 @@
-import { Menu, Recette } from 'types/recette.type';
+import { Recette } from 'types/recette.type';
 
 export enum Services {
 	entree,
@@ -54,25 +54,6 @@ const RECETTE_STEPS : string[] = [
 	"faire chauffer",
 	"servir"
 ];
-
-export function createMenu() : Menu {
-	return(
-		{
-			date: new Date().toLocaleDateString('fr', {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'}),
-			starter: [
-				createRecette(Services.entree),
-				createRecette(Services.entree)
-			],
-			mainCourse: [
-				createRecette(Services.plat),
-				createRecette(Services.plat)
-			],
-			dessert: [
-				createRecette(Services.dessert)
-			]
-		}
-	);
-}
 
 export function createRecette(service : Services) : Recette {
 	const recette : Recette = {

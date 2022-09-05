@@ -9,10 +9,9 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import KitchenIcon from '@mui/icons-material/Kitchen';
-import RoomServiceIcon from '@mui/icons-material/RoomService';
 import PowerSettingsNew from '@mui/icons-material/PowerSettingsNew';
 
-import { ROUTE_RECETTES, ROUTE_MENU } from 'const/routes.const';
+import { ROUTE_RECETTES } from 'const/routes.const';
 import { LS_TOKEN_KEY } from 'const/localStorage.const';
 
 import './Navbar.css';
@@ -34,10 +33,6 @@ function Navbar() {
 	return (
 		<Box id="app-navbar">
 			<List>
-				<NavbarListItem
-					itemName="Mon menu"
-					onClickCallback={navigateToPage(ROUTE_MENU)}
-					icon={<RoomServiceIcon />} />
 				<NavbarListItem
 					itemName="Mes recettes"
 					onClickCallback={navigateToPage(ROUTE_RECETTES)}
